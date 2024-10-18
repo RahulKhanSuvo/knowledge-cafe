@@ -7,6 +7,13 @@ function App() {
   const [bookmarks, setBookmarks] = useState([]);
   const [readingTime, setReadingTime] = useState(0);
   const handleAddToBookmarks = (blog) => {
+    const isAlreadyBookmarked = bookmarks.some(
+      (bookmark) => bookmark.id === blog.id
+    );
+    if (isAlreadyBookmarked) {
+      alert("This blog is already bookmarked");
+      return;
+    }
     setBookmarks([...bookmarks, blog]);
   };
   const handelMarkAsRead = (id, time) => {

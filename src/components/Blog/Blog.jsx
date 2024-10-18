@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 const Blog = ({ blog, handleAddToBookmarks, handelMarkAsRead }) => {
+  const [isRead, setIsRead] = useState(true);
   const {
     id,
     title,
@@ -11,6 +13,14 @@ const Blog = ({ blog, handleAddToBookmarks, handelMarkAsRead }) => {
     posted_date,
     hashtags,
   } = blog;
+  const handleMarkAsReadClick = () => {
+    handelMarkAsRead(id, reading_time);
+    setIsRead(true);
+  };
+  const bookmarkClick = () => {
+    handleAddToBookmarks(blog);
+    setIsRead(false);
+  };
   return (
     <div className="mb-8 border-b-2 pb-3">
       <img className="w-full rounded-lg" src={cover} alt="" />
@@ -27,10 +37,7 @@ const Blog = ({ blog, handleAddToBookmarks, handelMarkAsRead }) => {
         </div>
         <div className="flex items-center gap-5">
           <p> {reading_time} min read</p>
-          <button
-            onClick={() => handleAddToBookmarks(blog)}
-            className="text-red-600 text-2xl"
-          >
+          <button onClick={bookmarkClick} className="text-red-600 text-2xl">
             <FaBookmark />
           </button>
         </div>
@@ -44,8 +51,11 @@ const Blog = ({ blog, handleAddToBookmarks, handelMarkAsRead }) => {
         ))}
       </p>
       <button
-        onClick={() => handelMarkAsRead(id, reading_time)}
-        className="focus:text-[#6047EC] border-[#6047EC] border-b"
+        onClick={handleMarkAsReadClick}
+        className={`focus:text-[#6047EC] border-[#6047EC] border-b ${
+          isRead ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+        disabled={isRead}
       >
         Mark as read
       </button>
