@@ -1,13 +1,17 @@
 import Blogs from "./components/Blogs/Blogs";
+import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <div className="container mx-auto">
+      <main className="container mx-auto">
         <Header></Header>
-        <Blogs></Blogs>
-      </div>
+        <div className="grid md:grid-cols-4">
+          <Blogs></Blogs>
+          <Bookmarks></Bookmarks>
+        </div>
+      </main>
     </>
   );
 }
