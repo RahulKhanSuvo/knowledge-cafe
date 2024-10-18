@@ -21,7 +21,9 @@ Built with **React** and styled using **Tailwind CSS**, the app is designed to b
 - **Vite**: Fast build tool and development server for modern web projects.
 - **PropTypes**: Used for type-checking props.
 - **React Icons**: To provide scalable icons, including the bookmark icon.
+## Live Demo
 
+Check out the live version of the project: [Knowledge Cafe Live](https://knowledge-cafe-rahul-khan-suvo.netlify.app/)
 ## Project Structure
 
 .
