@@ -7,7 +7,7 @@ function App() {
     <>
       <main className="container mx-auto">
         <Header></Header>
-        <div className="grid md:grid-cols-4">
+        <div className="grid md:grid-cols-4 gap-6">
           <Blogs></Blogs>
           <Bookmarks></Bookmarks>
         </div>
